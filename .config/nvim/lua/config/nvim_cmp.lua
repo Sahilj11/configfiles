@@ -156,5 +156,21 @@ null_ls.setup({
     },
 })
 require("mason-null-ls").setup({
-    ensure_installed = { "stylua", "jq", "eslint_d", "prettier", "black" },
+    ensure_installed = {
+        "stylua",
+        "jq",
+        "eslint_d",
+        "prettier",
+        "black",
+        "jdtls",
+        "pyright",
+        "phpactor",
+        "cssls",
+        "html",
+        "clangd",
+        "tsserver",
+        "tailwindcss",
+        "emmet_language_server",
+        "lemminx",
+    },
 })
