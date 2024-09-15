@@ -1,0 +1,13 @@
+/* Rofi config file */
+configuration {
+    font: "FiraCode Nerd Font Mono 11";
+    show-icons: true;
+    display-window: "Window";
+    display-drun: "Search";
+}
+
+@theme "windows11-list-dark.rasi"
+
+listview {
+    lines: 12;
+}
