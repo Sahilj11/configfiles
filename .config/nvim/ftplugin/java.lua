@@ -90,7 +90,7 @@ local config = {
         bundles = {
             vim.fn.glob(
                 path_to_java_dap .. "com.microsoft.java.debug.plugin.jar",
-                1
+                true
             ),
         },
     },
