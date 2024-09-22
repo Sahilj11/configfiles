@@ -13,8 +13,8 @@ require("solarized-osaka").setup({
     --         fg = c.bg_dark,
     --     }
     -- end,
-    transparent = false,  -- Enable this to disable setting the background color
-    terminal_colors = false, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+    transparent = true,  -- Enable this to disable setting the background color
+    terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
     styles = {
         -- Style to be applied to different syntax groups
         -- Value is any valid attr-list value for `:help nvim_set_hl`
@@ -23,7 +23,7 @@ require("solarized-osaka").setup({
         functions = {},
         variables = {},
         -- Background styles. Can be "dark", "transparent" or "normal"
-        sidebars = "normal", -- style for sidebars, see below
+        sidebars = "transparent", -- style for sidebars, see below
         floats = "normal", -- style for floating windows
     },
 })
