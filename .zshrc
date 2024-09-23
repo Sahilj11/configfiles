@@ -72,6 +72,7 @@ alias vim='nvim'
 alias c='clear'
 alias ll='ls -lah'
 alias lzg='lazygit'
+alias lzd='lazydocker'
 
 # Shell integrations
 eval "$(fzf --zsh)"
