@@ -76,3 +76,13 @@ alias lzd='lazydocker'
 
 # Shell integrations
 eval "$(fzf --zsh)"
+
+mongo_connect() {
+  # Prompt for container name, username, and password
+  read "container_name?Enter MongoDB container name: "
+  read "username?Enter MongoDB username: "
+  read -s "password?Enter MongoDB password: "
+
+  # Run the MongoDB shell with authentication
+  docker exec -it $container_name mongosh -u $username -p $password --authenticationDatabase admin
+}
