@@ -73,6 +73,7 @@ alias c='clear'
 alias ll='ls -lah'
 alias lzg='lazygit'
 alias lzd='lazydocker'
+alias startdocker='sudo systemctl start docker'
 
 # Shell integrations
 eval "$(fzf --zsh)"
