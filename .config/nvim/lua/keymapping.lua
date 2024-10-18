@@ -21,6 +21,7 @@ keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-s>", "<C-u>zz", opts)
 
 -- Better window navigation
+keymap("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 -- keymap("n", "<leader>v", "<C-w>v", opts)
 -- keymap("n", "<leader>b", "<C-w>s", opts)
 -- keymap("n", "<leader>h", "<C-w>h", opts)
@@ -29,12 +30,14 @@ keymap("n", "<C-s>", "<C-u>zz", opts)
 -- keymap("n", "<leader>l", "<C-w>l", opts)
 -- keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 -- stylua: ignore start
+
 -- copying in clipboard
 -- keymap('n', '<leader>yy', '"+yy', opts)
 keymap('v', '<leader>yy', '"+y', opts)
 keymap('v', '<leader>yp', '"+p', opts)
 -- keymap('n', '<leader>yp', '"+P', opts)
 -- stylua: ignore end
+
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
