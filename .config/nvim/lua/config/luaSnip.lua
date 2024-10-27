@@ -83,7 +83,7 @@ ls.add_snippets("html", {
             i(3),
             i(4),
         })),
-        -- th:if
+    -- th:if
     s("th:if", { t('<div th:if="'), i(1, "condition"), t('">'), i(0), t("</div>") }),
 
     -- th:unless
@@ -120,7 +120,8 @@ ls.add_snippets("html", {
     s("th:checked", { t('<input type="checkbox" th:checked="'), i(1, "isChecked ? 'checked' : null"), t('" />') }),
 
     -- th:selected
-    s("th:selected", { t('<option th:selected="'), i(1, "isSelected ? 'selected' : null"), t('">'), i(0), t("</option>") }),
+    s("th:selected",
+        { t('<option th:selected="'), i(1, "isSelected ? 'selected' : null"), t('">'), i(0), t("</option>") }),
 
     -- th:attr
     s("th:attr", { t('<div th:attr="'), i(1, "attr"), t('">'), i(0), t("</div>") }),
@@ -318,18 +319,32 @@ ls.add_snippets("java", {
         i(4, "variable"),
         i(5),
     })),
-    -- s("contr",fmt([[
-    --     @Controller
-    --     public 
-    -- ]]))
+    s("patchc", fmt([[
+       @PatchMapping(path="{}")
+       public {} {}({}){{
+           {}
+       }}
+    ]], {
+        i(1, "url"),
+        i(2, "void"),
+        i(3, "name"),
+        i(4, "variable"),
+        i(5),
+    }))
 })
 -- stylua: ignore end
-ls.add_snippets("css",{
-    s("star",fmt([[
+ls.add_snippets("css", {
+    s(
+        "star",
+        fmt(
+            [[
         *{{
             padding:0;
             margin:0;
             box-sizing:border-box;
         }}
-    ]],{})),
+    ]],
+            {}
+        )
+    ),
 })

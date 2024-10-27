@@ -28,9 +28,10 @@ vim.opt.scrolloff = 8
 -- vim.opt.updatetime = 50
 
 vim.opt.fillchars = { fold = " " }
-vim.opt.foldmethod = "indent"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr="nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
-vim.opt.foldlevel = 99
+vim.opt.foldlevel = 20
 vim.g.markdown_folding = 1
 vim.g.markdown_enable_folding = 1
 
