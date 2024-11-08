@@ -92,9 +92,10 @@ require("lazy").setup({
     {
         "craftzdog/solarized-osaka.nvim",
         lazy = false,
-        priority = 1000,
+        -- priority = 1000,
         opts = {},
     },
+    { "rose-pine/neovim", name = "rose-pine" },
     --file navigation
     { "ThePrimeagen/harpoon" },
     {
