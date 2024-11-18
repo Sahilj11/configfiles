@@ -1,0 +1,15 @@
+set hlsearch
+set scrolloff=10
+set ignorecase smartcase
+set showmode
+set history=1000
+set incsearch
+set clipboard+=unnamed
+set relativenumber
+set ReplaceWithRegister
+set visualbell
+set idearefactormode=visual
+set showcmd
+set showmode
+set ideastatusicon=gray
+set virtualedit=onemore

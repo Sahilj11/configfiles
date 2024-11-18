@@ -88,3 +88,4 @@ mongo_connect() {
   # Run the MongoDB shell with authentication
   docker exec -it $container_name mongosh -u $username -p $password --authenticationDatabase admin
 }
+export PATH="$PATH:$HOME/.local/bin"
