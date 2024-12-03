@@ -13,7 +13,7 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Solarized Dark"
+    "dark": "One Dark"
   },
   "buffer_font_family": "Fira Code",
   "relative_line_numbers": true,
@@ -23,5 +23,8 @@
   },
   "buffer_line_height": {
     "custom": 1.7
+  },
+  "indent_guides": {
+    "enabled": false
   }
 }

@@ -18,13 +18,20 @@
       "space c a": "editor::ToggleCodeActions",
       "space r n": "editor::Rename",
       "space i": "editor::Format",
-      "space l l": "diagnostics::Deploy",
+      "space c d": "diagnostics::Deploy",
       "g c c": "editor::ToggleComments",
       "space f f": "file_finder::Toggle",
       "space o": "tab_switcher::Toggle",
       "space e": "workspace::ToggleLeftDock",
       "space p": "outline::Toggle",
-      "space v": "editor::GoToDefinitionSplit"
+      "space d": "vim::EndOfLine",
+      "space a": "vim::StartOfLine",
+      "space s": "workspace::Save",
+      "space x": "pane::CloseActiveItem",
+      "ctrl-d": "vim::ScrollDown",
+      "ctrl-s": "vim::ScrollUp",
+      "space v": "pane::SplitVertical",
+      "space b": "pane::SplitHorizontal"
     }
   },
   {
