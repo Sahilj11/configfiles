@@ -34,7 +34,7 @@ require("lspconfig").gopls.setup({
         },
     },
 })
-require("lspconfig").tsserver.setup({
+require("lspconfig").ts_ls.setup({
     capabilities = Capabilities,
 })
 require("lspconfig").lemminx.setup({
@@ -168,7 +168,7 @@ require("mason-null-ls").setup({
         "cssls",
         "html",
         "clangd",
-        "tsserver",
+        "ts_ls",
         "tailwindcss",
         "emmet_language_server",
         "lemminx",

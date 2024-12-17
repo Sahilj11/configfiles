@@ -71,7 +71,7 @@ keymap("v", "<leader>a", "^", opts)
 -- Saving and quiting
 keymap("n", "<leader>q", ":q<CR>", opts)
 keymap("n", "<leader>s", ":w<CR>", opts)
-keymap("n", "<leader>x", ":bd<CR>", opts)
+keymap("n", "<leader>xb", ":bd<CR>", opts)
 keymap("v", "<leader>x", ":bd<CR>", opts)
 
 -- telescope

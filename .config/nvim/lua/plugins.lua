@@ -95,7 +95,7 @@ require("lazy").setup({
         -- priority = 1000,
         opts = {},
     },
-    { "rose-pine/neovim", name = "rose-pine" },
+    { "rose-pine/neovim",       name = "rose-pine" },
     --file navigation
     { "ThePrimeagen/harpoon" },
     {
@@ -127,6 +127,38 @@ require("lazy").setup({
                     information = "info",
                 },
                 use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
+            },
+        },
+        keys = {
+            {
+                "<space>xx",
+                "<cmd>Trouble diagnostics toggle<cr>",
+                desc = "Diagnostics (Trouble)",
+            },
+            {
+                "<space>xX",
+                "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+                desc = "Buffer Diagnostics (Trouble)",
+            },
+            {
+                "<space>cs",
+                "<cmd>Trouble symbols toggle focus=false<cr>",
+                desc = "Symbols (Trouble)",
+            },
+            {
+                "<space>cl",
+                "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+                desc = "LSP Definitions / references / ... (Trouble)",
+            },
+            {
+                "<space>xL",
+                "<cmd>Trouble loclist toggle<cr>",
+                desc = "Location List (Trouble)",
+            },
+            {
+                "<space>xQ",
+                "<cmd>Trouble qflist toggle<cr>",
+                desc = "Quickfix List (Trouble)",
             },
         },
     },
@@ -172,6 +204,19 @@ require("lazy").setup({
     { "brenoprata10/nvim-highlight-colors" },
     { "akinsho/toggleterm.nvim",            version = "*",                              config = true },
     { "kevinhwang91/nvim-ufo",              dependencies = "kevinhwang91/promise-async" },
+    -- Lua
+    {
+        "folke/zen-mode.nvim",
+        opts = {},
+    },
+    {
+        "jiaoshijie/undotree",
+        dependencies = "nvim-lua/plenary.nvim",
+        config = true,
+        keys = { -- load the plugin only when using it's keybinding:
+            { "<space>u", "<cmd>lua require('undotree').toggle()<cr>" },
+        },
+    },
     -- lazy.nvim
     {
         "nvim-lualine/lualine.nvim",
