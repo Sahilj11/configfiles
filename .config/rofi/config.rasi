@@ -6,8 +6,10 @@ configuration {
     display-drun: "Search";
 }
 
-@theme "windows11-list-dark.rasi"
+//@theme "windows11-list-dark.rasi"
 
 listview {
     lines: 12;
 }
+
+@theme "/home/sahil/.config/rofi/themes/launchpad.rasi"

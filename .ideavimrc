@@ -1,4 +1,6 @@
+let mapleader = " "
 set hlsearch
+set ideajoin
 set scrolloff=10
 set ignorecase smartcase
 set showmode
@@ -12,4 +14,21 @@ set idearefactormode=visual
 set showcmd
 set showmode
 set ideastatusicon=gray
-set virtualedit=onemore
+
+" movements
+inoremap jk <Esc>
+nnoremap <leader>d $
+nnoremap <leader>a ^
+nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>b :split<CR>
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
+nnoremap <leader>k <C-w>k
+nnoremap <leader>j <C-w>j
+nnoremap <leader>xb :bd<CR>
+nmap <leader>yy "+yy
+nmap <leader>yp "+p
+nmap <C-d> <C-d>zz
+nmap <C-s> <C-u>zz
+set surround
+set NERDTree
