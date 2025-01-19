@@ -21,7 +21,29 @@ require("config.toggleterm")
 require("options")
 require("config.java_scripts")
 
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
-  pattern = "*.slint",
-  command = "set filetype=slint"
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = "*.slint",
+    command = "set filetype=slint",
 })
+
+-- local function set_jte_filetype()
+--     vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+--         pattern = "*.jte",
+--         callback = function()
+--             vim.bo.filetype = "jte"
+--         end,
+--     })
+-- end
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = "*.jte",
+    callback = function()
+        vim.bo.filetype = "jte"
+        local ext = vim.fn.expand("%:e")
+        if ext == "jte" then
+            vim.cmd("set syntax=html")
+        end
+    end,
+})
+
+-- set_jte_filetype()

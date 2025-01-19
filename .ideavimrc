@@ -18,6 +18,8 @@ set ideastatusicon=gray
 " movements
 inoremap jk <Esc>
 nnoremap <leader>d $
+vnoremap <leader>d $
+vnoremap <leader>a ^
 nnoremap <leader>a ^
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>b :split<CR>

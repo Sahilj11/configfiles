@@ -57,6 +57,7 @@ require("lspconfig").emmet_language_server.setup({
         "typescriptreact",
         "vue",
         "php",
+        "jte",
     },
     init_options = {
         html = {

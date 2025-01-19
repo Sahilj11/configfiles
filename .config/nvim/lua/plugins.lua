@@ -206,16 +206,8 @@ require("lazy").setup({
     { "kevinhwang91/nvim-ufo",              dependencies = "kevinhwang91/promise-async" },
     -- Lua
     {
-        "folke/zen-mode.nvim",
-        opts = {},
-    },
-    {
-        "jiaoshijie/undotree",
-        dependencies = "nvim-lua/plenary.nvim",
-        config = true,
-        keys = { -- load the plugin only when using it's keybinding:
-            { "<space>u", "<cmd>lua require('undotree').toggle()<cr>" },
-        },
+        "barrett-ruth/live-server.nvim",
+        opts={},
     },
     -- lazy.nvim
     {
