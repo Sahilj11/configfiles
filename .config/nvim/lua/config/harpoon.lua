@@ -1,27 +1,31 @@
-require('harpoon').setup{
-    global_settings = {
-    -- sets the marks upon calling `toggle` on the ui, instead of require `:w`.
-    save_on_toggle = false,
+local harpoon = require("harpoon")
 
-    -- saves the harpoon file upon every change. disabling is unrecommended.
-    save_on_change = true,
+harpoon:setup()
 
-    -- sets harpoon to run the command immediately as it's passed to the terminal when calling `sendCommand`.
-    enter_on_sendcmd = false,
+vim.keymap.set("n", "<space>m", function()
+    harpoon:list():add()
+end)
+vim.keymap.set("n", "<space>p", function()
+    harpoon.ui:toggle_quick_menu(harpoon:list())
+end)
 
-    -- closes any tmux windows harpoon that harpoon creates when you close Neovim.
-    tmux_autoclose_windows = false,
+vim.keymap.set("n", "<space>1", function()
+    harpoon:list():select(1)
+end)
+vim.keymap.set("n", "<space>2", function()
+    harpoon:list():select(2)
+end)
+vim.keymap.set("n", "<space>3", function()
+    harpoon:list():select(3)
+end)
+vim.keymap.set("n", "<space>4", function()
+    harpoon:list():select(4)
+end)
 
-    -- filetypes that you want to prevent from adding to the harpoon list menu.
-    excluded_filetypes = { "harpoon" },
-
-    -- set marks specific to each git branch inside git repository
-    mark_branch = false,
-
-    -- enable tabline with harpoon marks
-    tabline = false,
-    tabline_prefix = "   ",
-    tabline_suffix = "   ",
-}
-}
-require("telescope").load_extension('harpoon')
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<C-S-P>", function()
+    harpoon:list():prev()
+end)
+vim.keymap.set("n", "<C-S-N>", function()
+    harpoon:list():next()
+end)

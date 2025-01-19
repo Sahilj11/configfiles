@@ -95,9 +95,15 @@ require("lazy").setup({
         -- priority = 1000,
         opts = {},
     },
-    { "rose-pine/neovim",       name = "rose-pine" },
+    --colorscheme
+    { "rose-pine/neovim",         name = "rose-pine" },
+    { "ellisonleao/gruvbox.nvim", priority = 1000,   config = true, opts = ... },
     --file navigation
-    { "ThePrimeagen/harpoon" },
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
     {
         "nvim-tree/nvim-tree.lua",
         dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
@@ -207,7 +213,7 @@ require("lazy").setup({
     -- Lua
     {
         "barrett-ruth/live-server.nvim",
-        opts={},
+        opts = {},
     },
     -- lazy.nvim
     {
