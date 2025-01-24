@@ -88,16 +88,16 @@ keymap("n", "<leader>fw", ":FzfLua lgrep_curbuf<CR>", opts)
 -- keymap('n','<leader>ts',":Trouble symbols<CR>")
 -- java jdtls
 keymap('n', '<leader>co', "<Cmd>lua require'jdtls'.organize_imports()<CR>", { desc = 'Organize Imports' })
--- keymap('n', '<leader>crv', "<Cmd>lua require('jdtls').extract_variable()<CR>", { desc = 'Extract Variable' })
--- keymap('v', '<leader>crv', "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", { desc = 'Extract Variable' })
--- keymap('n', '<leader>crc', "<Cmd>lua require('jdtls').extract_constant()<CR>", { desc = 'Extract Constant' })
--- keymap('v', '<leader>crc', "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", { desc = 'Extract Constant' })
--- keymap('v', '<leader>crm', "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { desc = 'Extract Method' })
+keymap('n', '<leader>crv', "<Cmd>lua require('jdtls').extract_variable()<CR>", { desc = 'Extract Variable' })
+keymap('v', '<leader>crv', "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", { desc = 'Extract Variable' })
+keymap('n', '<leader>crc', "<Cmd>lua require('jdtls').extract_constant()<CR>", { desc = 'Extract Constant' })
+keymap('v', '<leader>crc', "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", { desc = 'Extract Constant' })
+keymap('v', '<leader>crm', "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { desc = 'Extract Method' })
+
 -- formatting
 keymap("n", "<leader>i", ":lua vim.lsp.buf.format()<CR>", opts)
 
 -- git
-keymap("n", "gf", ":0G<CR>", opts)
 -- keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", opts)
 -- keymap("n", "<leader>gs", ":Gitsigns stage_hunk<CR>", opts)
 keymap("n", "<C-]>", ":Gitsigns next_hunk<CR>", opts)
@@ -115,13 +115,6 @@ keymap("n", "<leader>cq", ":lua require'dapui'.close()<CR>",opts)
 -- terminal
 keymap("t", "<C-t>", "<C-\\><C-n>", opts)
 
--- harpoons
--- keymap("n", "<leader>m", ":lua require('harpoon.mark').add_file()<CR>", opts)
--- keymap("n", "<leader>p", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
--- keymap("n", "<leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
--- keymap("n", "<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
--- keymap("n", "<leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
--- keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
 
 -- neogen
 keymap("n", "<Leader>nf", ":lua require('neogen').generate()<CR>", opts)

@@ -98,6 +98,12 @@ require("lazy").setup({
     --colorscheme
     { "rose-pine/neovim",         name = "rose-pine" },
     { "ellisonleao/gruvbox.nvim", priority = 1000,   config = true, opts = ... },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
     --file navigation
     {
         "ThePrimeagen/harpoon",
@@ -205,16 +211,10 @@ require("lazy").setup({
         -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
     },
     -- other
-    { "brandishcode/thymeleaf-compile.nvim" },
-    { "folke/neodev.nvim",                  opts = {} },
+    { "folke/neodev.nvim",                 opts = {} },
     { "brenoprata10/nvim-highlight-colors" },
-    { "akinsho/toggleterm.nvim",            version = "*",                              config = true },
-    { "kevinhwang91/nvim-ufo",              dependencies = "kevinhwang91/promise-async" },
-    -- Lua
-    {
-        "barrett-ruth/live-server.nvim",
-        opts = {},
-    },
+    { "akinsho/toggleterm.nvim",           version = "*",                              config = true },
+    { "kevinhwang91/nvim-ufo",             dependencies = "kevinhwang91/promise-async" },
     -- lazy.nvim
     {
         "nvim-lualine/lualine.nvim",
