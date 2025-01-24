@@ -172,6 +172,11 @@ require("lazy").setup({
                 "<cmd>Trouble qflist toggle<cr>",
                 desc = "Quickfix List (Trouble)",
             },
+            {
+                "<space>cd",
+                "<cmd>Trouble todo toggle<cr>",
+                desc = "Todo List (Trouble)",
+            },
         },
     },
     {
