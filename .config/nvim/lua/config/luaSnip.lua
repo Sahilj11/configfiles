@@ -230,8 +230,38 @@ ls.add_snippets("java", {
             return vim.fn.expand('%:t:r')
         end, {}),
         i(1, "entity")
-    }))
+    })),
+    s("cexcep",fmt([[
+        package {};
 
+        /**
+         * {}
+         */
+        public class {} extends RuntimeException{{
+
+            public {}(String message){{
+               super(message);
+            }}
+
+            public {}(String message,Throwable cause){{
+               super(message,cause);
+            }}
+        }}
+    ]],{
+        f(getPackageName,{}),
+        f(function()
+            return vim.fn.expand('%:t:r')
+        end, {}),
+        f(function()
+            return vim.fn.expand('%:t:r')
+        end, {}),
+        f(function()
+            return vim.fn.expand('%:t:r')
+        end, {}),
+        f(function()
+            return vim.fn.expand('%:t:r')
+        end, {}),
+    }))
 })
 -- stylua: ignore end
 ls.add_snippets("css", {
