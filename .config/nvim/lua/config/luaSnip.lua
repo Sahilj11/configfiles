@@ -261,6 +261,19 @@ ls.add_snippets("java", {
         f(function()
             return vim.fn.expand('%:t:r')
         end, {}),
+    })),
+    s("nswitch",fmt([[
+        switch({}){{
+            case {}->{{
+
+            }}
+            default->{{
+
+            }}
+        }}
+    ]],{
+        i(1,"var"),
+        i(2,"CASE")
     }))
 })
 -- stylua: ignore end
