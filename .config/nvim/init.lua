@@ -45,5 +45,10 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
         end
     end,
 })
-
+-- vim.api.nvim_create_autocmd({"BufWritePost","BufEnter", "CursorHold", "InsertLeave" }, {
+--     pattern = "*.java",
+--     callback = function()
+--         vim.lsp.codelens.refresh()
+--     end,
+-- })
 -- set_jte_filetype()

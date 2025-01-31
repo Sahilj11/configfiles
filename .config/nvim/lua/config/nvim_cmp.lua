@@ -22,6 +22,7 @@ require("lspconfig").lua_ls.setup({
 require("lspconfig").phpactor.setup({
     capabilities = Capabilities,
 })
+
 require("lspconfig").gopls.setup({
     capabilities = Capabilities,
     settings = {

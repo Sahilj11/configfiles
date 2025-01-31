@@ -68,13 +68,81 @@ local config = {
     -- for a list of options
     settings = {
         java = {
-            -- inlayhints:true,
-            format={
-                settings={
-                    url="~/.local/share/nvim/mason/bin/google-java-format",
-                    profile="GoogleStyle"
-                }
-            }
+            signatureHelp = { enabled = true },
+            eclipse = {
+                downloadSources = true,
+            },
+            configuration = {
+                updateBuildConfiguration = "interactive",
+                runtimes = {
+                    {
+                        name = "JavaSE-11",
+                        path = "/usr/lib/jvm/java-11-openjdk",
+                        -- projects = { "my-java-11-project" }, -- Use Java 11 for this project
+                    },
+                    {
+                        name = "JavaSE-21",
+                        path = "/usr/lib/jvm/java-21-openjdk",
+                        default = true, -- Use this as the default Java version
+                    },
+                },
+            },
+            maven = {
+                downloadSources = true,
+            },
+            completion = {
+                favoriteStaticMembers = {
+                    "org.hamcrest.MatcherAssert.assertThat",
+                    "org.hamcrest.Matchers.*",
+                    "org.hamcrest.CoreMatchers.*",
+                    "org.junit.jupiter.api.Assertions.*",
+                    "java.util.Objects.requireNonNull",
+                    "java.util.Objects.requireNonNullElse",
+                    "org.mockito.Mockito.*",
+                },
+                filteredTypes = {
+                    "com.sun.*",
+                    "io.micrometer.shaded.*",
+                    "java.awt.*",
+                    "jdk.*",
+                    "sun.*",
+                },
+                importOrder = {
+                    "java",
+                    "javax",
+                    "com",
+                    "org",
+                },
+            },
+            -- implementationsCodeLens = {
+            --     enabled = true,
+            -- },
+            contentProvider = {
+                preferred = "fernflower",
+            },
+            extendedClientCapabilities = jdtlsS.extendedClientCapabilities,
+            sources = {
+                organizeImports = {
+                    starThreshold = 9999,
+                    staticStarThreshold = 9999,
+                },
+            },
+            codeGeneration = {
+                toString = {
+                    template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+                },
+                useBlocks = true,
+            },
+            -- referencesCodeLens = {
+            --     enabled = true,
+            -- },
+            format = {
+                enabled = true,
+                settings = {
+                    url = "~/.local/share/nvim/mason/bin/google-java-format",
+                    profile = "GoogleStyle",
+                },
+            },
         },
         -- this is end initial
     },
@@ -88,10 +156,7 @@ local config = {
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
         bundles = {
-            vim.fn.glob(
-                path_to_java_dap .. "com.microsoft.java.debug.plugin.jar",
-                true
-            ),
+            vim.fn.glob(path_to_java_dap .. "com.microsoft.java.debug.plugin.jar", true),
         },
     },
     -- init_options = {
@@ -103,9 +168,9 @@ local config = {
 }
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
-config['on_attach'] = function(client, bufnr)
-  jdtlsS.setup_dap({ hotcodereplace = 'auto' })
-  require('jdtls.dap').setup_dap_main_class_configs()
+config["on_attach"] = function(client, bufnr)
+    jdtlsS.setup_dap({ hotcodereplace = "auto" })
+    require("jdtls.dap").setup_dap_main_class_configs()
 end
 -- jdtlsS.setup({
 --     handlers = {

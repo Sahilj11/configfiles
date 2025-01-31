@@ -1,5 +1,6 @@
 -- HINT: USE `:H <OPTION>` TO FIGURE OUT THE MEANING IF NEEDED
 vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
+
 -- Tab
 vim.opt.tabstop = 4 -- number of visual spaces per TAB
 vim.opt.softtabstop = 4 -- number of spacesin tab when editing
@@ -13,7 +14,6 @@ vim.opt.splitbelow = true -- open new vertical split bottom
 vim.opt.splitright = true -- open new horizontal splits right
 vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
 vim.opt.showmode = false -- we are experienced, wo don't need the "-- INSERT --" mode hint
-
 -- Searching
 vim.opt.incsearch = true -- search as characters are entered
 vim.opt.hlsearch = false -- do not highlight matches
