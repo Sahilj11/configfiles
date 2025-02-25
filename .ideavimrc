@@ -10,7 +10,7 @@ set clipboard+=unnamed
 set relativenumber
 set ReplaceWithRegister
 set visualbell
-set idearefactormode=visual
+set idearefactormode=keep
 set showcmd
 set showmode
 set ideastatusicon=gray
@@ -34,3 +34,13 @@ nmap <C-d> <C-d>zz
 nmap <C-s> <C-u>zz
 set surround
 set NERDTree
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>ca :action ShowIntentionActions<CR>
+nnoremap <leader>co :action OptimizeImports<CR>
+nnoremap <leader>ci :action ReformatCode<CR>
+nnoremap <leader>cem :action ExtractMethod<CR>
+nnoremap <leader>cev :action ExtractVariable<CR>
+nnoremap <leader>cs :action FileStructurePopup<CR>
+nnoremap <leader>e :action ActivateProjectToolWindow<CR>
+nnoremap H :action PreviousTab<CR>
+nnoremap L :action NextTab<CR>

@@ -19,6 +19,9 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require("lspconfig").lua_ls.setup({
     capabilities = Capabilities,
 })
+require("lspconfig").dockerls.setup({
+    capabilities = Capabilities,
+})
 require("lspconfig").phpactor.setup({
     capabilities = Capabilities,
 })
@@ -113,13 +116,17 @@ end
 require("lspconfig").clangd.setup({
     capabilities = Capabilities,
 })
+
 require("lspconfig").tailwindcss.setup({
     root_dir = function(fname)
         local root_pattern =
             require("lspconfig").util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "postcss.config.js")
+        local root = root_pattern(fname)
         return root_pattern(fname)
     end,
 })
+
+
 -- null-ls
 local null_ls = require("null-ls")
 -- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

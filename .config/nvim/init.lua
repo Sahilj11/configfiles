@@ -26,15 +26,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     command = "set filetype=slint",
 })
 
--- local function set_jte_filetype()
---     vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
---         pattern = "*.jte",
---         callback = function()
---             vim.bo.filetype = "jte"
---         end,
---     })
--- end
-
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = "*.jte",
     callback = function()
@@ -45,10 +36,3 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
         end
     end,
 })
--- vim.api.nvim_create_autocmd({"BufWritePost","BufEnter", "CursorHold", "InsertLeave" }, {
---     pattern = "*.java",
---     callback = function()
---         vim.lsp.codelens.refresh()
---     end,
--- })
--- set_jte_filetype()

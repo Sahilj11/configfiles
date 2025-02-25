@@ -36,7 +36,9 @@ require("lazy").setup({
             "mlaursen/vim-react-snippets",
         },
     },
-    { "hrsh7th/cmp-buffer" },
+    {
+        "hrsh7th/cmp-buffer",
+    },
     { "hrsh7th/cmp-path" },
     { "saadparwaiz1/cmp_luasnip" },
     { "hrsh7th/cmp-nvim-lsp" },
@@ -217,9 +219,21 @@ require("lazy").setup({
     },
     -- other
     { "folke/neodev.nvim",                 opts = {} },
+    {"github/copilot.vim"},
     { "brenoprata10/nvim-highlight-colors" },
     { "akinsho/toggleterm.nvim",           version = "*",                              config = true },
     { "kevinhwang91/nvim-ufo",             dependencies = "kevinhwang91/promise-async" },
+    {
+        "luckasRanarison/tailwind-tools.nvim",
+        name = "tailwind-tools",
+        build = ":UpdateRemotePlugins",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-telescope/telescope.nvim", -- optional
+            "neovim/nvim-lspconfig", -- optional
+        },
+        opts = {},                  -- your configuration
+    },
     -- lazy.nvim
     {
         "nvim-lualine/lualine.nvim",

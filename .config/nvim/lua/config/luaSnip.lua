@@ -30,9 +30,9 @@ local function get_comment_prefix()
     local filetype = vim.bo.filetype
     if filetype == "java" or filetype == "javascript" or filetype == "c" then
         return "//"
-    elseif filetype == "python" or filetype == "sh"  then
+    elseif filetype == "python" or filetype == "sh" then
         return "#"
-    elseif  filetype == "lua"then
+    elseif filetype == "lua" then
         return "--"
     elseif filetype == "html" or filetype == "xml" then
         return "<!--"
@@ -47,7 +47,7 @@ local function get_html_xml_end_comment()
     if filetype == "html" or filetype == "xml" then
         return " -->"
     else
-        return ""  -- No closing comment for other file types
+        return "" -- No closing comment for other file types
     end
 end
 
@@ -55,7 +55,7 @@ end
 ls.add_snippets("all", {
     s("todo", {
         d(1, function()
-            return sn(nil, { t(get_comment_prefix() .. " TODO: ") ,i(1,"What else?")})
+            return sn(nil, { t(get_comment_prefix() .. " TODO: "), i(1, "What else?") })
         end),
         d(2, function()
             return sn(nil, { t(get_html_xml_end_comment()) })
@@ -63,7 +63,7 @@ ls.add_snippets("all", {
     }),
     s("fix", {
         d(1, function()
-            return sn(nil, { t(get_comment_prefix() .. " FIX: ") ,i(1,"this needs fixing")})
+            return sn(nil, { t(get_comment_prefix() .. " FIX: "), i(1, "this needs fixing") })
         end),
         d(2, function()
             return sn(nil, { t(get_html_xml_end_comment()) })
@@ -71,7 +71,7 @@ ls.add_snippets("all", {
     }),
     s("note", {
         d(1, function()
-            return sn(nil, { t(get_comment_prefix() .. " NOTE: ") ,i(1,"adding a note")})
+            return sn(nil, { t(get_comment_prefix() .. " NOTE: "), i(1, "adding a note") })
         end),
         d(2, function()
             return sn(nil, { t(get_html_xml_end_comment()) })
@@ -79,7 +79,7 @@ ls.add_snippets("all", {
     }),
     s("warning", {
         d(1, function()
-            return sn(nil, { t(get_comment_prefix() .. " WARNING: ") ,i(1,"???")})
+            return sn(nil, { t(get_comment_prefix() .. " WARNING: "), i(1, "???") })
         end),
         d(2, function()
             return sn(nil, { t(get_html_xml_end_comment()) })
@@ -87,7 +87,7 @@ ls.add_snippets("all", {
     }),
     s("perf", {
         d(1, function()
-            return sn(nil, { t(get_comment_prefix() .. " PERF: ") ,i(1,"fully optimised")})
+            return sn(nil, { t(get_comment_prefix() .. " PERF: "), i(1, "fully optimised") })
         end),
         d(2, function()
             return sn(nil, { t(get_html_xml_end_comment()) })
@@ -95,7 +95,7 @@ ls.add_snippets("all", {
     }),
     s("hack", {
         d(1, function()
-            return sn(nil, { t(get_comment_prefix() .. " HACK: ") ,i(1,"hmm,this looks a bit funky")})
+            return sn(nil, { t(get_comment_prefix() .. " HACK: "), i(1, "hmm,this looks a bit funky") })
         end),
         d(2, function()
             return sn(nil, { t(get_html_xml_end_comment()) })
@@ -231,7 +231,7 @@ ls.add_snippets("java", {
         end, {}),
         i(1, "entity")
     })),
-    s("cexcep",fmt([[
+    s("cexcep", fmt([[
         package {};
 
         /**
@@ -247,8 +247,8 @@ ls.add_snippets("java", {
                super(message,cause);
             }}
         }}
-    ]],{
-        f(getPackageName,{}),
+    ]], {
+        f(getPackageName, {}),
         f(function()
             return vim.fn.expand('%:t:r')
         end, {}),
@@ -262,7 +262,7 @@ ls.add_snippets("java", {
             return vim.fn.expand('%:t:r')
         end, {}),
     })),
-    s("nswitch",fmt([[
+    s("nswitch", fmt([[
         switch({}){{
             case {}->{{
 
@@ -271,9 +271,9 @@ ls.add_snippets("java", {
 
             }}
         }}
-    ]],{
-        i(1,"var"),
-        i(2,"CASE")
+    ]], {
+        i(1, "var"),
+        i(2, "CASE")
     }))
 })
 -- stylua: ignore end
