@@ -1,14 +1,15 @@
 require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
-        },
-    },
+	ui = {
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+		},
+	},
 })
+
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "rust_analyzer" },
+	ensure_installed = { "lua_ls", "rust_analyzer" },
 })
 local Capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- Setup language servers.
@@ -98,10 +99,10 @@ require("lspconfig").rust_analyzer.setup({
     },
 })
 require("lspconfig").cssls.setup({
-    capabilities = capabilities,
+	capabilities = capabilities,
 })
 require("lspconfig").html.setup({
-    capabilities = capabilities,
+	capabilities = capabilities,
 })
 
 local nvim_lsp = require("lspconfig")
@@ -109,77 +110,82 @@ local nvim_lsp = require("lspconfig")
 -- Function to attach LSP to current buffer
 
 function attach_lsp_to_buffer()
-    nvim_lsp.htmx.setup({})
+	nvim_lsp.htmx.setup({})
 end
 
 -- require("lspconfig").htmx.setup({})
 require("lspconfig").clangd.setup({
-    capabilities = Capabilities,
+	capabilities = Capabilities,
+})
+require("lspconfig").eslint.setup({
+	capabilities = Capabilities,
+	flags = {
+		allow_incremental_sync = false,
+		debounce_text_changes = 1000,
+	},
 })
 
 require("lspconfig").tailwindcss.setup({
-    root_dir = function(fname)
-        local root_pattern =
-            require("lspconfig").util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "postcss.config.js")
-        local root = root_pattern(fname)
-        return root_pattern(fname)
-    end,
+	root_dir = function(fname)
+		return require("lspconfig").util.root_pattern(
+			"tailwind.config.cjs",
+			"vite.config.js",
+			"tailwind.config.js",
+			"postcss.config.js"
+		)(fname)
+	end,
 })
-
 
 -- null-ls
 local null_ls = require("null-ls")
 -- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
-    -- function to format on save
-    -- on_attach = function(client, bufnr)
-    -- 	-- if client.supports_method("textDocument/formatting") then
-    -- 	-- 	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-    -- 	-- 	vim.api.nvim_create_autocmd("BufWritePre", {
-    -- 	-- 		group = augroup,
-    -- 	-- 		buffer = bufnr,
-    -- 	-- 		callback = function()
-    -- 	-- 			vim.lsp.buf.format({ async = false })
-    -- 	-- 		end,
-    -- 	-- 	})
-    -- 	-- end
-    -- 	client.server_capabilities.semanticTokensProvider = nil
-    -- end,
-    sources = {
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.google_java_format,
-        null_ls.builtins.formatting.gofumpt,
-        null_ls.builtins.formatting.golines,
-        null_ls.builtins.formatting.goimports_reviser,
-        null_ls.builtins.formatting.phpcsfixer,
-        null_ls.builtins.formatting.clang_format,
-        -- null_ls.builtins.code_actions.eslint_d,
-        -- null_ls.builtins.code_actions.eslint,
-        -- null_ls.builtins.completion.spell,
-        null_ls.builtins.diagnostics.checkstyle.with({
-            extra_args = { "-c", "/home/sahil/google_checkstyle.xml" }, -- or "/sun_checks.xml" or path to self written rules
-        }),
-        null_ls.builtins.code_actions.gitsigns,
-        null_ls.builtins.formatting.prettier,
-    },
+	-- function to format on save
+	-- on_attach = function(client, bufnr)
+	-- 	-- if client.supports_method("textDocument/formatting") then
+	-- 	-- 	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+	-- 	-- 	vim.api.nvim_create_autocmd("BufWritePre", {
+	-- 	-- 		group = augroup,
+	-- 	-- 		buffer = bufnr,
+	-- 	-- 		callback = function()
+	-- 	-- 			vim.lsp.buf.format({ async = false })
+	-- 	-- 		end,
+	-- 	-- 	})
+	-- 	-- end
+	-- 	client.server_capabilities.semanticTokensProvider = nil
+	-- end,
+	sources = {
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.google_java_format,
+		null_ls.builtins.formatting.gofumpt,
+		null_ls.builtins.formatting.golines,
+		null_ls.builtins.formatting.goimports_reviser,
+		null_ls.builtins.formatting.phpcsfixer,
+		null_ls.builtins.formatting.clang_format,
+		null_ls.builtins.diagnostics.checkstyle.with({
+			extra_args = { "-c", "/home/sahil/google_checkstyle.xml" }, -- or "/sun_checks.xml" or path to self written rules
+		}),
+		null_ls.builtins.code_actions.gitsigns,
+		null_ls.builtins.formatting.prettier,
+	},
 })
 require("mason-null-ls").setup({
-    ensure_installed = {
-        "stylua",
-        "jq",
-        "eslint_d",
-        "prettier",
-        "black",
-        "jdtls",
-        "pyright",
-        "phpactor",
-        "cssls",
-        "html",
-        "clangd",
-        "ts_ls",
-        "tailwindcss",
-        "emmet_language_server",
-        "lemminx",
-    },
+	ensure_installed = {
+		"stylua",
+		"jq",
+		"eslint_d",
+		"prettier",
+		"black",
+		"jdtls",
+		"pyright",
+		"phpactor",
+		"cssls",
+		"html",
+		"clangd",
+		"ts_ls",
+		"tailwindcss",
+		"emmet_language_server",
+		"lemminx",
+	},
 })
