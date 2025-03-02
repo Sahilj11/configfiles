@@ -219,7 +219,7 @@ require("lazy").setup({
     },
     -- other
     { "folke/neodev.nvim",                 opts = {} },
-    {"github/copilot.vim"},
+    { "github/copilot.vim" },
     { "brenoprata10/nvim-highlight-colors" },
     { "akinsho/toggleterm.nvim",           version = "*",                              config = true },
     { "kevinhwang91/nvim-ufo",             dependencies = "kevinhwang91/promise-async" },

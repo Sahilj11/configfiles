@@ -188,4 +188,5 @@ require("mason-null-ls").setup({
 		"emmet_language_server",
 		"lemminx",
 	},
+    automatic_installation = false
 })

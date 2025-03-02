@@ -39,6 +39,7 @@
   "promise-async": { "branch": "main", "commit": "119e8961014c9bfaf1487bf3c2a393d254f337e2" },
   "rose-pine": { "branch": "main", "commit": "91548dca53b36dbb9d36c10f114385f759731be1" },
   "solarized-osaka.nvim": { "branch": "main", "commit": "b023c3f3b9f1ce5b67c22e4401563d03554921cf" },
+  "springboot-nvim": { "branch": "main", "commit": "43567bc417c5767bd6d5eb8ff9f8ba8e98d6a9c2" },
   "tailwind-tools": { "branch": "master", "commit": "0862805c3c0d8a8d61ec1baffc79b9fbf5578d82" },
   "telescope.nvim": { "branch": "master", "commit": "7011eaae0ac1afe036e30c95cf80200b8dc3f21a" },
   "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },

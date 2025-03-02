@@ -68,9 +68,18 @@ local config = {
     -- for a list of options
     settings = {
         java = {
+            foldingRange = { enabled = true },
             signatureHelp = { enabled = true },
             eclipse = {
                 downloadSources = true,
+            },
+            import = {
+                gradle = {
+                    enabled = true,
+                },
+                maven = {
+                    enabled = true,
+                },
             },
             configuration = {
                 updateBuildConfiguration = "interactive",
