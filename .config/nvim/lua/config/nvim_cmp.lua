@@ -103,6 +103,7 @@ require("lspconfig").cssls.setup({
 })
 require("lspconfig").html.setup({
 	capabilities = capabilities,
+    filetypes={"html","jte","templ"}
 })
 
 local nvim_lsp = require("lspconfig")

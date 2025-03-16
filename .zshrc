@@ -72,9 +72,13 @@ alias open='xdg-open'
 alias vim='nvim'
 alias c='clear'
 alias ll='ls -lah'
+alias lls='ls -lsah'
 alias lzg='lazygit'
 alias lzd='lazydocker'
 alias startdocker='sudo systemctl start docker'
+alias tks='tmux kill-session'
+alias tka='tmux kill-session -a'
+alias tns='tmux new -s coding'
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -88,4 +92,23 @@ mongo_connect() {
   # Run the MongoDB shell with authentication
   docker exec -it $container_name mongosh -u $username -p $password --authenticationDatabase admin
 }
+
+fd() {
+  local dir
+  dir=$(find . -maxdepth 2 -type d -print | fzf) && cd "$dir"
+}
+
+ft() {
+  local dir
+  dir=$(find . -maxdepth 2 -type d -print | fzf) || return
+  dir_name=$(basename "$dir")
+
+  tmux has-session -t "$dir_name" 2>/dev/null
+  if [ $? -eq 0 ]; then
+    tmux attach-session -t "$dir_name"
+  else
+    tmux new-session -s "$dir_name" -c "$dir"
+  fi
+}
+
 export PATH="$PATH:$HOME/.local/bin"
