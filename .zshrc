@@ -79,6 +79,7 @@ alias startdocker='sudo systemctl start docker'
 alias tks='tmux kill-session'
 alias tka='tmux kill-session -a'
 alias tns='tmux new -s coding'
+alias hacker='docker run --rm -it bcbcarl/hollywood'
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -112,3 +113,5 @@ ft() {
 }
 
 export PATH="$PATH:$HOME/.local/bin"
+export PATH=/usr/local/go/bin:$PATH
+export PATH=/home/sahil/bash_scripts:$PATH

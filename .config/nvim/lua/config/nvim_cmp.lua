@@ -41,6 +41,11 @@ require("lspconfig").gopls.setup({
 })
 require("lspconfig").ts_ls.setup({
     capabilities = Capabilities,
+    init_options = {
+        preferences = {
+            disableSuggestions = true
+        },
+    },
 })
 require("lspconfig").lemminx.setup({
     capabilities = Capabilities,
