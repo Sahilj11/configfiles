@@ -16,102 +16,117 @@ local Capabilities = require("cmp_nvim_lsp").default_capabilities()
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-require("lspconfig").lua_ls.setup({
-    capabilities = Capabilities,
-})
-require("lspconfig").dockerls.setup({
-    capabilities = Capabilities,
-})
-require("lspconfig").phpactor.setup({
-    capabilities = Capabilities,
-})
-
-require("lspconfig").gopls.setup({
-    capabilities = Capabilities,
-    settings = {
-        gopls = {
-            completeUnimported = true,
-            usePlaceholders = true,
-            analyses = {
-                unusedparams = true,
-            },
-        },
-    },
-})
-require("lspconfig").ts_ls.setup({
-    capabilities = Capabilities,
-    init_options = {
-        preferences = {
-            disableSuggestions = true
-        },
-    },
-})
-require("lspconfig").lemminx.setup({
-    capabilities = Capabilities,
-})
-require("lspconfig").emmet_language_server.setup({
-    capabilities = Capabilities,
-    filetypes = {
-        "css",
-        "eruby",
-        "html",
-        "javascript",
-        "javascriptreact",
-        "less",
-        "sass",
-        "typescript",
-        "scss",
-        "svelte",
-        "pug",
-        "typescriptreact",
-        "vue",
-        "php",
-        "jte",
-    },
-    init_options = {
-        html = {
-            options = {
-                -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-                ["bem.enabled"] = true,
-            },
-        },
-    },
-})
-require("lspconfig").pyright.setup({
-    capabilities = Capabilities,
-})
-require("lspconfig").slint_lsp.setup({
-    capabilities = Capabilities,
-    cmd = {
-        "slint-lsp",
-    },
-    filetypes = {
-        "slint",
-    },
-})
-require("lspconfig").rust_analyzer.setup({
-    -- Server-specific settings. See `:help lspconfig-setup`
-    capabilities = Capabilities,
-    cmd = {
-        "rustup",
-        "run",
-        "stable",
-        "rust-analyzer",
-    },
-    settings = {
-        ["rust-analyzer"] = {},
-    },
-})
-require("lspconfig").cssls.setup({
-	capabilities = capabilities,
-})
-require("lspconfig").html.setup({
-	capabilities = capabilities,
-    filetypes={"html","jte","templ"}
-})
-
 local nvim_lsp = require("lspconfig")
+nvim_lsp.lua_ls.setup({
+	capabilities = Capabilities,
+})
+-- nvim_lsp.dockerls.setup({
+--     capabilities = Capabilities,
+-- })
+
+nvim_lsp.dockerls.setup({
+	settings = {
+		docker = {
+			languageserver = {
+				formatter = {
+					ignoreMultilineInstructions = true,
+				},
+			},
+		},
+	},
+})
+
+nvim_lsp.docker_compose_language_service.setup({
+})
+nvim_lsp.phpactor.setup({
+	capabilities = Capabilities,
+})
+
+nvim_lsp.gopls.setup({
+	capabilities = Capabilities,
+	settings = {
+		gopls = {
+			completeUnimported = true,
+			usePlaceholders = true,
+			analyses = {
+				unusedparams = true,
+			},
+		},
+	},
+})
+nvim_lsp.ts_ls.setup({
+	capabilities = Capabilities,
+	init_options = {
+		preferences = {
+			disableSuggestions = true,
+		},
+	},
+})
+nvim_lsp.lemminx.setup({
+	capabilities = Capabilities,
+})
+nvim_lsp.emmet_language_server.setup({
+	capabilities = Capabilities,
+	filetypes = {
+		"css",
+		"eruby",
+		"html",
+		"javascript",
+		"javascriptreact",
+		"less",
+		"sass",
+		"typescript",
+		"scss",
+		"svelte",
+		"pug",
+		"typescriptreact",
+		"vue",
+		"php",
+		"jte",
+	},
+	init_options = {
+		html = {
+			options = {
+				-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+				["bem.enabled"] = true,
+			},
+		},
+	},
+})
+nvim_lsp.pyright.setup({
+	capabilities = Capabilities,
+})
+nvim_lsp.slint_lsp.setup({
+	capabilities = Capabilities,
+	cmd = {
+		"slint-lsp",
+	},
+	filetypes = {
+		"slint",
+	},
+})
+nvim_lsp.rust_analyzer.setup({
+	-- Server-specific settings. See `:help lspconfig-setup`
+	capabilities = Capabilities,
+	cmd = {
+		"rustup",
+		"run",
+		"stable",
+		"rust-analyzer",
+	},
+	settings = {
+		["rust-analyzer"] = {},
+	},
+})
+nvim_lsp.cssls.setup({
+	capabilities = capabilities,
+})
+nvim_lsp.html.setup({
+	capabilities = capabilities,
+	filetypes = { "html", "jte", "templ" },
+})
+
+local nvim_lsp = nvim_lsp
 
 -- Function to attach LSP to current buffer
 
@@ -119,11 +134,11 @@ function attach_lsp_to_buffer()
 	nvim_lsp.htmx.setup({})
 end
 
--- require("lspconfig").htmx.setup({})
-require("lspconfig").clangd.setup({
+-- nvim_lsp.htmx.setup({})
+nvim_lsp.clangd.setup({
 	capabilities = Capabilities,
 })
-require("lspconfig").eslint.setup({
+nvim_lsp.eslint.setup({
 	capabilities = Capabilities,
 	flags = {
 		allow_incremental_sync = false,
@@ -131,9 +146,9 @@ require("lspconfig").eslint.setup({
 	},
 })
 
-require("lspconfig").tailwindcss.setup({
+nvim_lsp.tailwindcss.setup({
 	root_dir = function(fname)
-		return require("lspconfig").util.root_pattern(
+		return nvim_lsp.util.root_pattern(
 			"tailwind.config.cjs",
 			"vite.config.js",
 			"tailwind.config.js",
@@ -194,5 +209,5 @@ require("mason-null-ls").setup({
 		"emmet_language_server",
 		"lemminx",
 	},
-    automatic_installation = false
+	automatic_installation = false,
 })
