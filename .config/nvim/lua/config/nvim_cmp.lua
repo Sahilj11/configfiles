@@ -15,7 +15,9 @@ local Capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- Setup language servers.
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 local nvim_lsp = require("lspconfig")
 nvim_lsp.lua_ls.setup({
 	capabilities = Capabilities,

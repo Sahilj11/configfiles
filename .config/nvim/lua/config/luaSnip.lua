@@ -102,6 +102,7 @@ ls.add_snippets("all", {
         end),
     }),
 })
+
 ls.add_snippets("java", {
     s("getc", fmt([[
        @GetMapping(path="{}")
