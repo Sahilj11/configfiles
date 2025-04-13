@@ -25,7 +25,7 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
-        ["<C-e>"] = cmp.mapping(function(fallback)
+        ["<CR>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 if luasnip.expand() then
                     luasnip.expand()
