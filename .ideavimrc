@@ -1,46 +1,157 @@
+" ────────────────────────────────────────────────
+" GENERAL SETTINGS
+" ────────────────────────────────────────────────
 let mapleader = " "
-set hlsearch
-set ideajoin
-set scrolloff=10
-set ignorecase smartcase
-set showmode
 set history=1000
-set incsearch
-set clipboard+=unnamed
-set relativenumber
-set ReplaceWithRegister
+set scrolloff=10
 set visualbell
-set idearefactormode=keep
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
 set showcmd
 set showmode
+set relativenumber
+set clipboard+=unnamed
+set ideajoin
+set idearefactormode=keep
 set ideastatusicon=gray
+set ReplaceWithRegister
+set surround
+set NERDTree
+set which-key
+set multiple-cursors
+set ReplaceWithRegister
+set commentary
 
-" movements
+" ────────────────────────────────────────────────
+" INSERT MODE SHORTCUTS
+" ────────────────────────────────────────────────
 inoremap jk <Esc>
-nnoremap <leader>d $
-vnoremap <leader>d $
-vnoremap <leader>a ^
-nnoremap <leader>a ^
+
+" ────────────────────────────────────────────────
+" WINDOW MANAGEMENT
+" ────────────────────────────────────────────────
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>b :split<CR>
 nnoremap <leader>h <C-w>h
 nnoremap <leader>l <C-w>l
 nnoremap <leader>k <C-w>k
 nnoremap <leader>j <C-w>j
-nnoremap <leader>xb :bd<CR>
+map <leader>sq <Action>(Unsplit)
+
+nmap so <Action>(MaximizeEditorInSplit)
+nmap sH <Action>(MoveTabDown)
+nmap sV <Action>(MoveTabRight)
+nmap ss <Action>(MoveEditorToOppositeTabGroup)
+
+" ────────────────────────────────────────────────
+" FILE / TAB / BUFFER MANAGEMENT
+" ────────────────────────────────────────────────
+map <leader>q :action CloseContent<CR>
+nnoremap H :action PreviousTab<CR>
+nnoremap L :action NextTab<CR>
+
+" ────────────────────────────────────────────────
+" FILE NAVIGATION
+" ────────────────────────────────────────────────
+map <leader>fc <Action>(GotoClass)
+map <leader>ff <Action>(GotoFile)
+map <leader>fs <Action>(GotoSymbol)
+map <leader>fa <Action>(GotoAction)
+map <leader>fi <Action>(GotoImplementation)
+map <leader>gt <Action>(GotoTest)
+map <leader>gm <Action>(GotoSuperMethod)
+map <leader>gi <Action>(QuickImplementations)
+map <leader>td <Action>(QuickTypeDefinition)
+
+" ────────────────────────────────────────────────
+" CODE USAGE AND INSPECTION
+" ────────────────────────────────────────────────
+map <leader>fu <Action>(ShowUsages)
+map <leader>re <Action>(ShowHoverInfo)
+map <leader>ca :action ShowIntentionActions<CR>
+nnoremap <leader>cl :action FileStructurePopup<CR>
+
+" ────────────────────────────────────────────────
+" SEARCH AND REPLACE
+" ────────────────────────────────────────────────
+map <S-f> <Action>(Find)
+map <S-r> <Action>(Replace)
+
+" ────────────────────────────────────────────────
+" REFACTORING
+" ────────────────────────────────────────────────
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+map <leader>co <Action>(OptimizeImports)
+map <leader>rn <Action>(RenameElement)
+
+" ────────────────────────────────────────────────
+" COMMENTING
+" ────────────────────────────────────────────────
+
+" ────────────────────────────────────────────────
+" SEARCH HIGHLIGHT HANDLING
+" ────────────────────────────────────────────────
+nnoremap <Esc> :nohlsearch<CR>
+
+" ────────────────────────────────────────────────
+" VIMRC EDITING
+" ────────────────────────────────────────────────
+noremap <leader>cc :edit ~/.ideavimrc<CR>
+noremap <leader>cs :source ~/.ideavimrc<CR>
+
+" ────────────────────────────────────────────────
+" CODE MOVEMENT
+" ────────────────────────────────────────────────
+nnoremap <S-j> :m .+1<CR>==
+nnoremap <S-k> :m .-2<CR>==
+vmap <S-j> <Action>(MoveLineDown)
+vmap <S-k> <Action>(MoveLineUp)
+nmap ]e <Action>(GotoNextError)
+nmap [e <Action>(GotoPreviousError)
+
+" ────────────────────────────────────────────────
+" MOVEMENTS TO LINE START/END
+" ────────────────────────────────────────────────
+vnoremap <leader>d $
+vnoremap <leader>a ^
+nnoremap <leader>d $
+nnoremap <leader>a ^
+
+" ────────────────────────────────────────────────
+" CREATING
+" ────────────────────────────────────────────────
+map <leader>nc <Action>(NewClass)
+map <leader>np <Action>(NewDir)
+
+" ────────────────────────────────────────────────
+" MULTI-CURSORS
+" ────────────────────────────────────────────────
+xmap <C-n>     <Plug>NextWholeOccurrence
+nmap g<C-n>    <Plug>NextOccurrence
+nmap <C-n>     <Plug>NextWholeOccurrence
+xmap g<C-n>    <Plug>NextOccurrence
+xmap <C-x>     <Plug>SkipOccurrence
+xmap <C-p>     <Plug>RemoveOccurrence
+
+
+" ────────────────────────────────────────────────
+" MISC SHORTCUTS
+" ────────────────────────────────────────────────
+nnoremap <leader>e :action ActivateProjectToolWindow<CR>
+map <leader>sw <Action>(SurroundWith)
+map <S-space> <Action>(Generate)
 nmap <leader>yy "+yy
 nmap <leader>yp "+p
 nmap <C-d> <C-d>zz
 nmap <C-s> <C-u>zz
-set surround
-set NERDTree
-nnoremap <leader>rn :action RenameElement<CR>
-nnoremap <leader>ca :action ShowIntentionActions<CR>
-nnoremap <leader>co :action OptimizeImports<CR>
-nnoremap <leader>ci :action ReformatCode<CR>
-nnoremap <leader>cem :action ExtractMethod<CR>
-nnoremap <leader>cev :action ExtractVariable<CR>
-nnoremap <leader>cs :action FileStructurePopup<CR>
-nnoremap <leader>e :action ActivateProjectToolWindow<CR>
-nnoremap H :action PreviousTab<CR>
-nnoremap L :action NextTab<CR>
+nnoremap <leader>i :action ReformatCode<CR>
+map <leader>rc <Action>(RunClass)
+map <leader>ss <Action>(Stop)
+map <leader>ra <Action>(Rerun)
+map <leader>zm <Action>(ToggleZenMode)
