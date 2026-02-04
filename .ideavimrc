@@ -10,6 +10,8 @@ set incsearch
 set ignorecase
 set smartcase
 set showcmd
+set which-key
+set timeoutlen=3000
 set showmode
 set relativenumber
 set clipboard+=unnamed
@@ -19,7 +21,6 @@ set ideastatusicon=gray
 set ReplaceWithRegister
 set surround
 set NERDTree
-set which-key
 set multiple-cursors
 set ReplaceWithRegister
 set commentary
@@ -60,10 +61,24 @@ map <leader>ff <Action>(GotoFile)
 map <leader>fs <Action>(GotoSymbol)
 map <leader>fa <Action>(GotoAction)
 map <leader>fi <Action>(GotoImplementation)
+map <leader>fg <Action>(TextSearchAction)
 map <leader>gt <Action>(GotoTest)
 map <leader>gm <Action>(GotoSuperMethod)
 map <leader>gi <Action>(QuickImplementations)
 map <leader>td <Action>(QuickTypeDefinition)
+map <leader>fr :action RecentFiles<CR>
+
+nmap <leader>m <Action>(ToggleBookmarkWithMnemonic)
+nmap <leader>1 <Action>(GotoBookmark1)
+nmap <leader>2 <Action>(GotoBookmark2)
+nmap <leader>3 <Action>(GotoBookmark3)
+nmap <leader>4 <Action>(GotoBookmark4)
+nmap <leader>5 <Action>(GotoBookmark5)
+nmap <leader>6 <Action>(GotoBookmark6)
+nmap <leader>7 <Action>(GotoBookmark7)
+nmap <leader>8 <Action>(GotoBookmark8)
+nmap <leader>9 <Action>(GotoBookmark9)
+nmap <leader>0 <Action>(GotoBookmark0)
 
 " ────────────────────────────────────────────────
 " CODE USAGE AND INSPECTION
@@ -116,6 +131,18 @@ nmap ]e <Action>(GotoNextError)
 nmap [e <Action>(GotoPreviousError)
 
 " ────────────────────────────────────────────────
+" GIT
+" ────────────────────────────────────────────────
+nmap <leader>ga <Action>(Vcs.QuickListPopupAction)
+nmap <leader>gr <Action>(ChangesView.Revert)
+nmap <leader>gd <Action>(Compare.SameVersion)
+nmap <leader>gb <Action>(Git.Branches)
+nmap <leader>ghf <Action>(Vcs.ShowTabbedFileHistory)
+nmap <leader>gc <Action>(CheckinFiles)
+nmap <leader>gB <Action>(Annotate)
+nmap <leader>gl <Action>(ActivateVersionControlToolWindow)
+
+" ────────────────────────────────────────────────
 " MOVEMENTS TO LINE START/END
 " ────────────────────────────────────────────────
 vnoremap <leader>d $
@@ -150,8 +177,13 @@ nmap <leader>yy "+yy
 nmap <leader>yp "+p
 nmap <C-d> <C-d>zz
 nmap <C-s> <C-u>zz
+nmap <leader>sf <Action>(NewScratchFile)
 nnoremap <leader>i :action ReformatCode<CR>
 map <leader>rc <Action>(RunClass)
-map <leader>ss <Action>(Stop)
+map <leader>ss <Action>(Switcher)
 map <leader>ra <Action>(Rerun)
 map <leader>zm <Action>(ToggleZenMode)
+map <leader>m <Action>(ToggleBookmarkWithMnemonic)
+nnoremap <leader>si <Action>(ShowReformatFileDialog)
+vmap <leader>si <Action>(ShowReformatFileDialog)
+map <leader>cp <Action>(CollapseAllRegions)
