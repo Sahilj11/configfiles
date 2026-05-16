@@ -22,20 +22,20 @@ keymap("n", "<C-s>", "<C-u>zz", opts)
 
 -- Better window navigation
 keymap("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
--- keymap("n", "<leader>v", "<C-w>v", opts)
--- keymap("n", "<leader>b", "<C-w>s", opts)
--- keymap("n", "<leader>h", "<C-w>h", opts)
--- keymap("n", "<leader>j", "<C-w>j", opts)
--- keymap("n", "<leader>k", "<C-w>k", opts)
--- keymap("n", "<leader>l", "<C-w>l", opts)
--- keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>v", "<C-w>v", opts)
+keymap("n", "<leader>b", "<C-w>s", opts)
+keymap("n", "<leader>h", "<C-w>h", opts)
+keymap("n", "<leader>j", "<C-w>j", opts)
+keymap("n", "<leader>k", "<C-w>k", opts)
+keymap("n", "<leader>l", "<C-w>l", opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 -- stylua: ignore start
 
 -- copying in clipboard
 -- keymap('n', '<leader>yy', '"+yy', opts)
 keymap('v', '<leader>yy', '"+y', opts)
 keymap('v', '<leader>yp', '"+p', opts)
--- keymap('n', '<leader>yp', '"+P', opts)
+keymap('n', '<leader>yp', '"+P', opts)
 -- stylua: ignore end
 
 -- Resize with arrows
@@ -64,9 +64,9 @@ keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 
 keymap("v", "<leader>d", "$", opts)
--- keymap("n", "<leader>d", "$", opts)
+keymap("n", "<leader>d", "$", opts)
 keymap("v", "<leader>a", "^", opts)
--- keymap("n", "<leader>a", "^", opts)
+keymap("n", "<leader>a", "^", opts)
 
 -- Saving and quiting
 keymap("n", "<leader>q", ":q<CR>", opts)
@@ -77,7 +77,7 @@ keymap("v", "<leader>x", ":bd<CR>", opts)
 -- telescope
 -- keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fg", ":FzfLua live_grep<CR>", opts)
--- keymap("n", "<leader>ca", ":FzfLua lsp_code_actions<CR>", opts)
+keymap("n", "<leader>ca", ":FzfLua lsp_code_actions<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope treesitter<CR>", opts)
 keymap("n", "<leader>fo", ":FzfLua oldfiles<CR>", opts)
 keymap("n", "<leader>fb", ":FzfLua buffers<CR>", opts)
@@ -98,14 +98,14 @@ keymap('v', '<leader>crm', "<Esc><Cmd>lua require('jdtls').extract_method(true)<
 keymap("n", "<leader>i", ":lua vim.lsp.buf.format()<CR>", opts)
 
 -- git
--- keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", opts)
--- keymap("n", "<leader>gs", ":Gitsigns stage_hunk<CR>", opts)
+keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", opts)
+keymap("n", "<leader>gs", ":Gitsigns stage_hunk<CR>", opts)
 keymap("n", "<C-]>", ":Gitsigns next_hunk<CR>", opts)
 keymap("n", "<C-[>", ":Gitsigns prev_hunk<CR>", opts)
--- keymap("n", "<leader>gd", ":Gitsigns diffthis<CR>", opts)
+keymap("n", "<leader>gd", ":Gitsigns diffthis<CR>", opts)
 
 -- colors
--- keymap("n", "<leader>tc", ":HighlightColors Toggle<CR>", opts)
+keymap("n", "<leader>tc", ":HighlightColors Toggle<CR>", opts)
 
 --debugging
 keymap("n", "<leader>cb", ":lua require'dap'.toggle_breakpoint()<CR>", opts)

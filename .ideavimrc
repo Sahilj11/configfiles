@@ -14,7 +14,7 @@ set which-key
 set timeoutlen=3000
 set showmode
 set relativenumber
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 set ideajoin
 set idearefactormode=keep
 set ideastatusicon=gray
