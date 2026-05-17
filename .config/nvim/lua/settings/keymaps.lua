@@ -1,7 +1,5 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
-
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 --Remap space as leader key
@@ -28,13 +26,14 @@ keymap("n", "<leader>h", "<C-w>h", opts)
 keymap("n", "<leader>j", "<C-w>j", opts)
 keymap("n", "<leader>k", "<C-w>k", opts)
 keymap("n", "<leader>l", "<C-w>l", opts)
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+-- keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 -- stylua: ignore start
 
 -- copying in clipboard
 -- keymap('n', '<leader>yy', '"+yy', opts)
 keymap('v', '<leader>yy', '"+y', opts)
 keymap('v', '<leader>yp', '"+p', opts)
+keymap('v', '<leader>yP', '"_dP', opts)
 keymap('n', '<leader>yp', '"+P', opts)
 -- stylua: ignore end
 
@@ -75,12 +74,12 @@ keymap("n", "<leader>xb", ":bd<CR>", opts)
 keymap("v", "<leader>x", ":bd<CR>", opts)
 
 -- telescope
--- keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>fg", ":FzfLua live_grep<CR>", opts)
-keymap("n", "<leader>ca", ":FzfLua lsp_code_actions<CR>", opts)
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>ca", ":Telescope lsp_code_actions<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope treesitter<CR>", opts)
-keymap("n", "<leader>fo", ":FzfLua oldfiles<CR>", opts)
-keymap("n", "<leader>fb", ":FzfLua buffers<CR>", opts)
+keymap("n", "<leader>fo", ":Telescope oldfiles<CR>", opts)
+keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope harpoon marks<CR>", opts)
 keymap("n", "<leader>fw", ":FzfLua lgrep_curbuf<CR>", opts)
 
@@ -181,13 +180,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 function attach_to_debug()
     local dap = require("dap")
     dap.configurations.java = {
-        {
-            type = "java",
-            request = "attach",
-            name = "Attach to the process",
-            hostName = "localhost",
-            port = "5005",
-        },
+      {
+        type = "java",
+        request = "attach",
+        name = "Attach to the process",
+        hostName = "localhost",
+        port = "5005",
+      },
     }
     dap.continue()
 end
