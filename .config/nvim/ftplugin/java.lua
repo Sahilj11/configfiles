@@ -114,3 +114,31 @@ local config = {
 }
 
 jdtls.start_or_attach(config)
+
+local spring_utils = require("utils.spring")
+
+-- 1. Endpoints Finder
+vim.keymap.set("n", "<leader>fe", spring_utils.find_springboot_endpoints, {
+  buffer = true,
+  desc = "Search Spring Endpoints (IntelliJ Style)",
+})
+
+-- 2. Configuration Properties Search
+vim.keymap.set("n", "<leader>fp", spring_utils.find_config_properties, {
+  buffer = true,
+  desc = "Search Spring Config Properties",
+})
+
+-- 3. Bean Dependency & Usages Lookup
+vim.keymap.set("n", "<leader>fb", spring_utils.find_bean_dependencies, {
+  buffer = true,
+  desc = "Search Spring Bean Usages under Cursor",
+})
+
+vim.keymap.set("n", "<leader>fc", function()
+  require("telescope.builtin").find_files({
+    prompt_title = "Find Project Classes (Fast)",
+    -- Ask ripgrep to ONLY return .java files, skipping the LSP entirely
+    find_command = { "rg", "--files", "--color=never", "--type", "java" },
+  })
+end, { buffer = true, desc = "[F]ind [C]lass/Interface (Fast)" })
