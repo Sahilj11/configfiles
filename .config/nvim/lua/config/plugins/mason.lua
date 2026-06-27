@@ -3,6 +3,11 @@ return {
 		"mason-org/mason-lspconfig.nvim",
 		opts = {
 			ensure_installed = { "lua_ls", "rust_analyzer", "cssls", "emmet_ls", "eslint" ,"jdtls"},
+      automatic_exclude = {
+        exclude = {
+          'jdtls'
+        }
+      }
 		},
 		dependencies = {
 			{

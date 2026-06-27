@@ -9,3 +9,4 @@ vim.api.nvim_create_autocmd('FileType', {
     pcall(vim.treesitter.start)
   end,
 })
+vim.cmd("colorscheme slate")

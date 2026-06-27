@@ -26,7 +26,7 @@ keymap("n", "<leader>h", "<C-w>h", opts)
 keymap("n", "<leader>j", "<C-w>j", opts)
 keymap("n", "<leader>k", "<C-w>k", opts)
 keymap("n", "<leader>l", "<C-w>l", opts)
--- keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 -- stylua: ignore start
 
 -- copying in clipboard
@@ -112,7 +112,8 @@ keymap("n", "<leader>cc", ":lua require'dap'.continue()<CR>", opts)
 keymap("n", "<leader>cq", ":lua require'dapui'.close()<CR>",opts)
 
 -- terminal
-keymap("t", "<C-t>", "<C-\\><C-n>", opts)
+-- keymap("t", "<C-t>", "<C-\\><C-n>", opts)
+keymap("n", "<C-\\>", ":FloatermToggle<CR>", opts)
 
 
 -- neogen
